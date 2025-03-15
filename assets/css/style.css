@@ -16,6 +16,7 @@ body {
     color: var(--text-color);
 }
 
+/* CABEÇALHO */
 .main-header {
     background-color: #FFF;
     padding: 0 40px; /* Reduzi o padding vertical para 0 */
@@ -52,6 +53,11 @@ body {
     margin: 0;
 }
 
+.nav_menulista{
+    display: flex;
+    gap: 40px;
+}
+
 .nav-menu li {
     display: inline;
 }
@@ -81,6 +87,11 @@ body {
     background-color: #B08A67;
 }
 
+.menu-toggle{
+    display: none;
+}
+
+/* SEÇÃO HERO */
 .container {
     width: 90%;
     max-width: 1200px;
@@ -145,4 +156,249 @@ body {
 .hero-right .cta-button {
     margin-top: 20px;
     display: inline-block; /* Garantir que o botão fique alinhado à esquerda */
+}
+
+/* TABLETS */
+@media (max-width: 1024px) {
+    .main-header {
+        width: 90%; /* Aumenta a largura do cabeçalho para ocupar mais espaço */
+        padding: 0 40px; /* Reduz o padding horizontal */
+        height: 80px; /* Altura fixa do cabeçalho */
+        box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo img {
+        height: 130px; /* Reduz o tamanho da logo */
+    }
+
+    .cta-button {
+        display: none; /* Esconde o botão CTA no tablet */
+    }
+
+    .nav-menu {
+        display: none; /* Esconde o menu principal */
+    }
+
+    /* Menu Hamburguer Personalizado */
+    .menu-toggle {
+        display: flex; /* Usa flexbox para alinhar o ícone */
+        align-items: center; /* Centraliza verticalmente */
+        justify-content: center; /* Centraliza horizontalmente */
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 1001;
+    }
+
+    .hamburger {
+        width: 30px;
+        height: 3px;
+        background-color: var(--primary-color);
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+        content: '';
+        width: 30px;
+        height: 3px;
+        background-color: var(--primary-color);
+        position: absolute;
+        left: 0;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger::before {
+        transform: translateY(-10px);
+    }
+
+    .hamburger::after {
+        transform: translateY(10px);
+    }
+
+    /* Animação do Ícone (transforma em "X") */
+    .menu-toggle.active .hamburger {
+        background: transparent;
+    }
+
+    .menu-toggle.active .hamburger::before {
+        transform: rotate(45deg);
+    }
+
+    .menu-toggle.active .hamburger::after {
+        transform: rotate(-45deg);
+    }
+
+    /* Menu que abre de cima para baixo */
+    .nav-menu {
+        position: fixed;
+        top: -100%; /* Esconde o menu acima da tela */
+        left: 0;
+        width: 100%;
+        background-color: var(--secondary-color);
+        flex-direction: column;
+        align-items: center;
+        transition: top 0.3s ease; /* Animação suave */
+        z-index: 1000;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para destacar o menu */
+    }
+
+    .nav-menu.active {
+        top: 80px; /* Exibe o menu abaixo do cabeçalho */
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px 0;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu a {
+        color: white;
+        font-size: 18px;
+        text-decoration: none;
+        display: block;
+        padding: 10px 0;
+    }
+
+    /* Ajustes para a seção Hero */
+    .hero {
+        padding: 80px 20px; /* Reduz o padding da seção hero */
+        margin: 60px 20px; /* Reduz a margem da seção hero */
+    }
+
+    .hero-columns {
+        gap: 20px; /* Reduz o espaçamento entre as colunas */
+    }
+
+    .hero-left .first-paragraph {
+        font-size: 24px; /* Reduz o tamanho da fonte do primeiro parágrafo */
+    }
+
+    .hero-right .second-paragraph {
+        font-size: 16px; /* Reduz o tamanho da fonte do segundo parágrafo */
+    }
+
+    .hero-right .cta-button {
+        padding: 8px 16px; /* Reduz o padding do botão */
+    }
+}
+/* MOBILES */
+@media (max-width: 768px) {
+    .main-header {
+        width: 80%; /* Ocupa toda a largura da tela */
+        padding: 0 30px; /* Adiciona um padding lateral */
+        height: 60px; /* Altura fixa do cabeçalho */
+        box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo img {
+        height: 110px; /* Reduz o tamanho da logo */
+    }
+
+    .cta-button {
+        display: none; /* Esconde o botão CTA no mobile */
+    }
+
+    .nav-menu {
+        display: none; /* Esconde o menu principal */
+    }
+
+    /* Menu Hamburguer Personalizado */
+    .menu-toggle {
+        display: flex; /* Usa flexbox para alinhar o ícone */
+        align-items: center; /* Centraliza verticalmente */
+        justify-content: center; /* Centraliza horizontalmente */
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 1001;
+    }
+
+    .hamburger {
+        width: 25px;
+        height: 3px;
+        background-color: var(--primary-color);
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+        content: '';
+        width: 25px;
+        height: 3px;
+        background-color: var(--primary-color);
+        position: absolute;
+        left: 0;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger::before {
+        transform: translateY(-8px);
+    }
+
+    .hamburger::after {
+        transform: translateY(8px);
+    }
+
+    /* Animação do Ícone (transforma em "X") */
+    .menu-toggle.active .hamburger {
+        background: transparent;
+    }
+
+    .menu-toggle.active .hamburger::before {
+        transform: rotate(45deg);
+    }
+
+    .menu-toggle.active .hamburger::after {
+        transform: rotate(-45deg);
+    }
+
+    /* Menu que abre de cima para baixo */
+    .nav-menu {
+        position: fixed;
+        top: -100%; /* Esconde o menu acima da tela */
+        left: 0;
+        width: 100%;
+        background-color: var(--secondary-color);
+        flex-direction: column;
+        align-items: center;
+        transition: top 0.3s ease; /* Animação suave */
+        z-index: 1000;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para destacar o menu */
+    }
+
+    .nav-menu.active {
+        top: 60px; /* Exibe o menu abaixo do cabeçalho */
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px 0;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu a {
+        color: white;
+        font-size: 18px;
+        text-decoration: none;
+        display: block;
+        padding: 10px 0;
+    }
 }
