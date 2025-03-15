@@ -1,0 +1,148 @@
+:root {
+    --primary-color: #000;
+    --secondary-color: #C8A97E;
+    --background-color: #F8F5F2;
+    --text-color: #333;
+    --font-family: 'Arial', sans-serif;
+    --border-radius: 50px;
+    --shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.main-header {
+    background-color: #FFF;
+    padding: 0 40px; /* Reduzi o padding vertical para 0 */
+    display: flex;
+    align-items: center; /* Centraliza os itens verticalmente */
+    justify-content: space-between;
+    width: 70%;
+    max-width: 1200px;
+    margin: 20px auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    height: 80px; /* Altura fixa do cabeçalho */
+    overflow: hidden; /* Corta o que ultrapassar o cabeçalho */
+}
+
+.logo img {
+    height: 150px; /* Tamanho fixo para a logo */
+    width: auto; /* Mantém a proporção da logo */
+    object-fit: contain; /* Evita distorção da imagem */
+    display: block; /* Garante que a imagem se comporte como um bloco */
+    margin: 0; /* Remove margens padrão */
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu li {
+    display: inline;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: var(--secondary-color);
+}
+
+.cta-button {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #B08A67;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 140px; /* Ajuste o espaçamento para acomodar o cabeçalho fixo */
+}
+
+.hero {
+    background: url('/assets/img/background/FundoSeçãoHero.jpg') no-repeat center center/cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 100px 40px;
+    border-radius: 25px;
+    position: relative;
+    min-height: 400px;
+    margin: 60px 40px; /* Espaçamento no topo */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Overlay escuro */
+    border-radius: 25px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-columns {
+    display: flex;
+    gap: 40px; /* Espaçamento entre as colunas */
+}
+
+.hero-left, .hero-right {
+    flex: 1; /* Divide o espaço igualmente entre as colunas */
+}
+
+.hero-left .first-paragraph {
+    font-size: 28px; /* Tamanho maior para o primeiro parágrafo */
+    font-weight: bold;
+    text-align: left; /* Alinhar texto à esquerda */
+    margin: 0; /* Remover margens padrão */
+}
+
+.hero-right {
+    text-align: left; /* Alinhar texto e CTA à esquerda */
+}
+
+.hero-right .second-paragraph {
+    font-size: 18px; /* Tamanho menor para o segundo parágrafo */
+    margin: 0 0 20px 0; /* Espaçamento abaixo do segundo parágrafo */
+}
+
+.hero-right .cta-button {
+    margin-top: 20px;
+    display: inline-block; /* Garantir que o botão fique alinhado à esquerda */
+}
